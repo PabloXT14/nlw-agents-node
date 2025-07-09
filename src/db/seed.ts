@@ -9,8 +9,10 @@ await seed(db, schema).refine((faker) => {
   return {
     rooms: {
       count: 20,
-      name: faker.companyName(),
-      description: faker.loremIpsum(),
+      columns: {
+        name: faker.companyName(),
+        description: faker.loremIpsum(),
+      },
     },
   }
 })
