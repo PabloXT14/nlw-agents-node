@@ -8,6 +8,13 @@
       "when": 1752015618312,
       "tag": "0000_square_nuke",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1752169289327,
+      "tag": "0001_hard_franklin_richards",
+      "breakpoints": true
     }
   ]
 }
