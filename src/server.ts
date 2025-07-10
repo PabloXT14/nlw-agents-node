@@ -7,10 +7,12 @@ import {
 } from 'fastify-type-provider-zod'
 
 import { env } from './env.ts'
-
+import { createRoomRoute } from './http/routes/create-room.ts'
 import { getRoomsRoute } from './http/routes/get-rooms.ts'
 
 const app = fastify().withTypeProvider<ZodTypeProvider>()
+
+// MIDDLEWARES
 
 app.register(fastifyCors, {
   origin: 'http://localhost:5173',
@@ -19,11 +21,16 @@ app.register(fastifyCors, {
 app.setSerializerCompiler(serializerCompiler)
 app.setValidatorCompiler(validatorCompiler)
 
+// ROUTES
+
 app.get('/health', () => {
   return 'OK'
 })
 
 app.register(getRoomsRoute)
+app.register(createRoomRoute)
+
+// START SERVER
 
 app
   .listen({
@@ -31,6 +38,6 @@ app
     host: '0.0.0.0',
   })
   .then(() => {
-    // biome-ignore lint/suspicious/noConsole: <explanation>
+    // biome-ignore lint/suspicious/noConsole: only in dev
     console.log(`HTTP server running on port ${env.PORT}!`)
   })
