@@ -1,4 +1,32 @@
-# NLW Agents
+<h1 align="center">
+  <img
+    src=".github/nlw-agents-logo.svg"
+    title="NLW Agents"
+    alt="NLW Agents"
+  />
+
+  NLW Agents
+</h1>
+
+<p align="center">
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/pabloxt14/nlw-agents-node">
+
+  <img alt="GitHub Top Language" src="https://img.shields.io/github/languages/top/pabloxt14/nlw-agents-node" />
+
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/pabloxt14/nlw-agents-node">
+  
+  <a href="https://github.com/pabloxt14/nlw-agents-node/commits/master">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/pabloxt14/nlw-agents-node">
+  </a>
+    
+   <img alt="License" src="https://img.shields.io/badge/license-MIT-blue">
+
+   <a href="https://github.com/pabloxt14/nlw-agents-node/stargazers">
+    <img alt="Stargazers" src="https://img.shields.io/github/stars/pabloxt14/nlw-agents-node?style=social">
+  </a>
+</p>
+
+## 💻 Sobre
 
 Projeto desenvolvido durante um evento da **Rocketseat** utilizando tecnologias modernas para criação de uma API robusta e eficiente.
 
@@ -11,6 +39,7 @@ Projeto desenvolvido durante um evento da **Rocketseat** utilizando tecnologias 
 - **Zod** - Schema validation
 - **Docker** - Containerização do banco de dados
 - **Biome** - Linting e formatação de código
+- **@google/genai** - API de IA da Google
 
 ## 🏗️ Arquitetura
 
@@ -46,6 +75,7 @@ Crie um arquivo `.env` na raiz do projeto:
 ```env
 PORT=3333
 DATABASE_URL=postgresql://docker:docker@localhost:5432/agents
+GEMINI_API_KEY=<chave-api-gemini>
 ```
 
 ### 4. Instale as dependências
@@ -87,6 +117,10 @@ A API estará disponível em `http://localhost:3333`
 
 - `GET /health` - Health check da aplicação
 - `GET /rooms` - Lista as salas disponíveis
+- `POST /rooms` - Cria uma nova sala
+- `GET /rooms/:roomId/questions` - Lista as perguntas de uma sala específica
+- `POST /rooms/:roomId/questions` - Cria uma nova pergunta para uma sala especifica
+- `POST /rooms/:roomId/audio` - Envia um audio para uma sala especifica
 
 ---
 
